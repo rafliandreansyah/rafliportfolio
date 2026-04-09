@@ -13,10 +13,10 @@ import PresenceWidget from "./PresenceWidget";
 const socialLinks = [
   {
     name: "LinkedIn",
-    displayName: "Let's Connect",
+    displayName: "LinkedIn",
     subText: "on LinkedIn",
     icon: Linkedin,
-    url: "https://www.linkedin.com/in/ekizr/",
+    url: "https://www.linkedin.com/in/rafli-andreansyah-86299217a/",
     color: "#0A66C2",
     gradient: "from-[#0A66C2] to-[#0077B5]",
     isPrimary: true,
@@ -24,34 +24,34 @@ const socialLinks = [
   {
     name: "Instagram",
     displayName: "Instagram",
-    subText: "@ekizr_",
+    subText: "@rafliandrean_",
     icon: Instagram,
-    url: "https://www.instagram.com/ekizr_/?hl=id",
+    url: "https://www.instagram.com/rafliandrean_/?hl=id",
     color: "#E4405F",
     gradient: "from-[#833AB4] via-[#E4405F] to-[#FCAF45]",
   },
   {
     name: "YouTube",
     displayName: "Youtube",
-    subText: "@eki zulfar",
+    subText: "@rafliandreansyah",
     icon: Youtube,
-    url: "https://www.youtube.com/@eki_zulfar",
+    url: "https://www.youtube.com/@rafliandreansyah",
     color: "#FF0000",
     gradient: "from-[#FF0000] to-[#CC0000]",
   },
   {
     name: "GitHub",
     displayName: "Github",
-    subText: "@EkiZR",
+    subText: "@rafliandreansyah",
     icon: Github,
-    url: "https://github.com/EkiZR",
+    url: "https://github.com/rafliandreansyah",
     color: "#ffffff",
     gradient: "from-[#333] to-[#24292e]",
   },
   {
     name: "TikTok",
     displayName: "Tiktok",
-    subText: "@eki_zulfar",
+    subText: "@kearahangin",
     icon: ({ className, ...props }) => (
       <svg
         width="24px"
@@ -89,7 +89,7 @@ const socialLinks = [
         </g>
       </svg>
     ),
-    url: "https://tiktok.com/@eki_zulfar",
+    url: "https://www.tiktok.com/@kearahangin",
     color: "black",
     gradient: "from-[#000000] via-[#25F4EE] to-[#FE2C55]",
   },
@@ -118,70 +118,9 @@ const SocialLinks = () => {
       </h3>
 
       <div className="flex flex-col gap-4">
-        {/* LinkedIn - Primary Row */}
-        <a
-          href={linkedIn.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group relative flex items-center justify-between p-4 rounded-lg 
-                     bg-white/5 border border-white/10 overflow-hidden
-                     hover:border-white/20 transition-all duration-500"
-          data-aos="fade-up"
-          data-aos-delay="100" 
-        >
-          {/* Hover Gradient Background */}
-          <div
-            className={`absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500
-                       bg-gradient-to-r ${linkedIn.gradient}`}
-          />
-
-          {/* Content Container */}
-          <div className="relative flex items-center gap-4">
-            {/* Icon Container */}
-            <div className="relative flex items-center justify-center">
-              <div
-                className="absolute inset-0 opacity-20 rounded-md transition-all duration-500
-                               group-hover:scale-110 group-hover:opacity-30"
-                style={{ backgroundColor: linkedIn.color }}
-              />
-              <div className="relative p-2 rounded-md">
-                <linkedIn.icon
-                  className="w-6 h-6 transition-all duration-500 group-hover:scale-105"
-                  style={{ color: linkedIn.color }}
-                />
-              </div>
-            </div>
-
-            {/* Text Container */}
-            <div className="flex flex-col">
-              <span className="text-lg font-bold pt-[0.2rem] text-gray-200 tracking-tight leading-none group-hover:text-white transition-colors duration-300">
-                {linkedIn.displayName}
-              </span>
-              <span className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
-                {linkedIn.subText}
-              </span>
-            </div>
-          </div>
-
-          {/* External Link */}
-          <ExternalLink
-            className="relative w-5 h-5 text-gray-500 group-hover:text-white
-                       opacity-0 group-hover:opacity-100 transition-all duration-300
-                       transform group-hover:translate-x-0 -translate-x-1"
-          />
-
-          {/* Shine Effect */}
-          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 pointer-events-none overflow-hidden">
-            <div
-              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent
-                               translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"
-            />
-          </div>
-        </a>
-
-        {/* Second Row - Instagram & YouTube */}
+        {/* Second Row - Instagram & LinkedIn */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {[instagram, youtube].map((link, index) => (
+          {[instagram, linkedIn].map((link, index) => (
             <a
               key={link.name}
               href={link.url}
