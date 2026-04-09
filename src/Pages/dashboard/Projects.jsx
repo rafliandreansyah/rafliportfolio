@@ -83,24 +83,24 @@ const ProjectCard = ({ project, onDelete, onEdit }) => {
               <div className="w-full h-full animate-pulse bg-white/5" />
             )}
             <img
-              src={project.Img}
-              alt={project.Title}
+              src={project.img}
+              alt={project.title}
               onLoad={() => setImgLoaded(true)}
               className={`w-full h-full object-cover transition-opacity duration-300 ${imgLoaded ? "opacity-100" : "opacity-0 absolute"}`}
             />
           </div>
         )}
         <h3 className="font-semibold text-white text-sm mb-1">
-          {project.Title}
+          {project.title}
         </h3>
-        {project.Description && (
+        {project.description && (
           <p className="text-gray-400 text-xs mb-3 line-clamp-2 leading-relaxed">
-            {project.Description}
+            {project.description}
           </p>
         )}
-        {project.TechStack?.length > 0 && (
+        {project.techStack?.length > 0 && (
           <div className="flex flex-wrap gap-1.5 mb-3">
-            {project.TechStack.map((t) => (
+            {project.techStack.map((t) => (
               <span
                 key={t}
                 className="px-2 py-0.5 rounded-full bg-indigo-500/15 border border-indigo-500/25 text-indigo-300 text-xs"
@@ -112,9 +112,9 @@ const ProjectCard = ({ project, onDelete, onEdit }) => {
         )}
         <div className="mt-auto flex items-center justify-between gap-2 pt-2 border-t border-white/8">
           <div className="flex gap-2">
-            {project.Link && (
+            {project.link && (
               <a
-                href={project.Link}
+                href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-1.5 rounded-lg border border-white/10 text-gray-500 hover:text-white hover:border-white/20 transition-colors"
@@ -122,9 +122,9 @@ const ProjectCard = ({ project, onDelete, onEdit }) => {
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>
             )}
-            {project.Github && (
+            {project.github && (
               <a
-                href={project.Github}
+                href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-1.5 rounded-lg border border-white/10 text-gray-500 hover:text-white hover:border-white/20 transition-colors"
@@ -191,19 +191,19 @@ const ProjectForm = ({
   uploading,
 }) => {
   const [form, setForm] = useState({
-    Title: initial?.Title || "",
-    Description: initial?.Description || "",
-    TechStack: Array.isArray(initial?.TechStack)
-      ? initial.TechStack.join(", ")
-      : initial?.TechStack || "",
-    Features: Array.isArray(initial?.Features)
-      ? initial.Features.join(", ")
-      : initial?.Features || "",
-    Link: initial?.Link || "",
-    Github: initial?.Github || "",
+    Title: initial?.title || "",
+    Description: initial?.description || "",
+    TechStack: Array.isArray(initial?.tech_stack)
+      ? initial.tech_stack.join(", ")
+      : initial?.tech_stack || "",
+    Features: Array.isArray(initial?.features)
+      ? initial.features.join(", ")
+      : initial?.features || "",
+    Link: initial?.link || "",
+    Github: initial?.github || "",
   });
   const [file, setFile] = useState(null);
-  const [preview, setPreview] = useState(initial?.Img || null);
+  const [preview, setPreview] = useState(initial?.img || null);
 
   const set = (key) => (e) => setForm((f) => ({ ...f, [key]: e.target.value }));
 
@@ -363,21 +363,26 @@ export default function Projects() {
 
   const handleCreate = async (form, file) => {
     setUploading(true);
-    let imgUrl = "";
-    if (file) imgUrl = await uploadImage(file);
-    await supabase.from("projects").insert({
-      Title: form.Title,
-      Description: form.Description,
-      Img: imgUrl,
-      TechStack: form.TechStack.split(",")
-        .map((s) => s.trim())
-        .filter(Boolean),
-      Features: form.Features.split(",")
-        .map((s) => s.trim())
-        .filter(Boolean),
-      Link: form.Link,
-      Github: form.Github,
-    });
+    try {
+      let imgUrl = "";
+      if (file) imgUrl = await uploadImage(file);
+      await supabase.from("projects").insert({
+        title: form.Title,
+        description: form.Description,
+        img: imgUrl,
+        tech_stack: form.TechStack.split(",")
+          .map((s) => s.trim())
+          .filter(Boolean),
+        features: form.Features.split(",")
+          .map((s) => s.trim())
+          .filter(Boolean),
+        link: form.Link,
+        github: form.Github,
+      });
+    } catch (error) {
+      console.error("Error inserting data:", error.message);
+    }
+
     setShowCreate(false);
     setUploading(false);
     fetchProjects();
@@ -390,17 +395,17 @@ export default function Projects() {
     await supabase
       .from("projects")
       .update({
-        Title: form.Title,
-        Description: form.Description,
-        Img: imgUrl,
-        TechStack: form.TechStack.split(",")
+        title: form.Title,
+        description: form.Description,
+        img: imgUrl,
+        tech_stack: form.TechStack.split(",")
           .map((s) => s.trim())
           .filter(Boolean),
-        Features: form.Features.split(",")
+        features: form.Features.split(",")
           .map((s) => s.trim())
           .filter(Boolean),
-        Link: form.Link,
-        Github: form.Github,
+        link: form.Link,
+        github: form.Github,
       })
       .eq("id", editProject.id);
     setEditProject(null);
