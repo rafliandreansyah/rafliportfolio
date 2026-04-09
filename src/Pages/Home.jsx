@@ -204,7 +204,7 @@ const Home = () => {
             "url": "https://rafli.muratech.id",
             "sameAs": [
               "https://github.com/rafliandreansyah",
-              "https://www.linkedin.com/in/rafli-andreansyah-86299217a/",
+              "https://www.linkedin.com/in/rafli-andreansyah-86299217a",
               "https://www.instagram.com/rafliandrean_/?hl=id"
             ]
           }
