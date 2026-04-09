@@ -390,7 +390,7 @@ export default function Projects() {
 
   const handleEdit = async (form, file) => {
     setUploading(true);
-    let imgUrl = editProject.Img || "";
+    let imgUrl = editProject.img || "";
     if (file) imgUrl = await uploadImage(file);
     await supabase
       .from("projects")
