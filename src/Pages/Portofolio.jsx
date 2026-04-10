@@ -392,7 +392,7 @@ export default function FullWidthTabs() {
                           : "1000"
                     }
                   >
-                    <Certificate ImgSertif={certificate.Img} />
+                    <Certificate ImgSertif={certificate.img} />
                   </div>
                 ))}
               </div>
