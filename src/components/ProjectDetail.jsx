@@ -156,7 +156,7 @@ const ProjectDetails = () => {
     );
   }
 
-  const projectUrl = `https://rafli.muratech.id/project/${toSlug(project.title)}`;
+  const projectUrl = `https://rafliportfolio.vercel.app/project/${toSlug(project.title)}`;
 
   return (
     <>
@@ -193,7 +193,7 @@ const ProjectDetails = () => {
             "author": {
               "@type": "Person",
               "name": "Rafli Andreansyah",
-              "url": "https://rafli.muratech.id"
+              "url": "https://rafliportfolio.vercel.app"
             }
           }
         `}</script>

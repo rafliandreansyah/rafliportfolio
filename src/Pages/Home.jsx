@@ -184,7 +184,7 @@ const Home = () => {
           content="Official website and portfolio of Rafli Andreansyah, Mobile Developer. Software developer with expertise in Frontend and Mobile Ecosystem. Possesses deep knowledge in building responsive and high-performance interfaces using various modern technologies, from native solutions to cross-platform development."
         />
         <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://rafli.muratech.id" />
+        <link rel="canonical" href="https://rafliportfolio.vercel.app" />
         <meta
           property="og:title"
           content="Rafli Andreansyah — Mobile Developer"
@@ -193,7 +193,7 @@ const Home = () => {
           property="og:description"
           content="Official website and portfolio of Rafli Andreansyah, Mobile Developer."
         />
-        <meta property="og:url" content="https://rafli.muratech.id" />
+        <meta property="og:url" content="https://rafliportfolio.vercel.app" />
         <meta property="og:type" content="website" />
         <script type="application/ld+json">{`
           {
@@ -201,7 +201,7 @@ const Home = () => {
             "@type": "Person",
             "name": "Rafli Andreansyah",
             "jobTitle": "Mobile Developer",
-            "url": "https://rafli.muratech.id",
+            "url": "https://rafliportfolio.vercel.app",
             "sameAs": [
               "https://github.com/rafliandreansyah",
               "https://www.linkedin.com/in/rafli-andreansyah-86299217a",
